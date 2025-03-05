@@ -11,8 +11,6 @@ def call_emotion_detector():
 
     # Pass the text to the sentiment_analyzer function and store the response
     response = emotion_detector(text_to_analyze)
-   
-
     # Extract the anger and score from the response
     anger = response['anger']
     disgust = response['disgust']
@@ -23,8 +21,10 @@ def call_emotion_detector():
     # Return a formatted string with the sentiment label and score
     if dominant_emotion is None :
         return " Invalid text! Please try again"
-    else: 
-        return "For the given statement, the system response is anger: {}, disgust: {}, fear: {}, joy: {}, sadness: {} . The dominant emotion is {}".format( anger, disgust, fear, joy, sadness, dominant_emotion)
+    
+    return "For the given statement, the system response is anger: {}, disgust: {}, fear:  \
+    {}, joy: {}, sadness: {} . \
+    The dominant emotion is {}".format( anger, disgust, fear, joy, sadness, dominant_emotion)
 
 
 
@@ -36,5 +36,3 @@ def render_index_page():
 
 if __name__ == "__main__":
     app.run( host = "0.0.0.0", port = 5000)
-    
-    
