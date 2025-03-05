@@ -21,10 +21,9 @@ def call_emotion_detector():
     # Return a formatted string with the sentiment label and score
     if dominant_emotion is None :
         return " Invalid text! Please try again"
-    
-    return "For the given statement, the system response is anger: {}, disgust: {}, fear:  \
-    {}, joy: {}, sadness: {} . \
-    The dominant emotion is {}".format( anger, disgust, fear, joy, sadness, dominant_emotion)
+    return f"For the given statement, the system response is anger: {anger}, disgust: {disgust},\
+         fear:  {fear}, joy: {joy}, sadness: {sadness} . \
+         The dominant emotion is {dominant_emotion}"
 
 
 
