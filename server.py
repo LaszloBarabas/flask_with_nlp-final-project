@@ -1,3 +1,18 @@
+"""
+This module contains a Flask web application for an Emotion Detector.
+
+The application has two routes:
+    - /emotionDetector: accepts a text to analyze as a request argument and
+                        returns the sentiment analysis results as a string.
+    - /: renders an HTML template for the user to input text and submit for
+          analysis.
+
+The application calls the emotion_detector function from the EmotionDetection
+module to perform the sentiment analysis.
+
+The application is configured to run on host 0.0.0.0 and port 5000.
+"""
+
 from flask import Flask, render_template, request
 
 from EmotionDetection.emotion_detection import emotion_detector
@@ -6,6 +21,10 @@ app = Flask("Emotion Detector")
 
 @app.route("/emotionDetector")
 def call_emotion_detector():
+    """
+    Accepts a text to analyze as a request argument and returns the sentiment
+    analysis results as a string.
+    """
     # Retrieve the text to analyze from the request arguments
     text_to_analyze = request.args.get('textToAnalyze')
 
@@ -29,6 +48,9 @@ def call_emotion_detector():
 
 @app.route("/")
 def render_index_page():
+    """
+    Renders an HTML template for the user to input text and submit for analysis.
+    """
     return render_template('index.html')
 
 
